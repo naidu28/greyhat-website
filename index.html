@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>GreyHat | Georgia Tech's Premier Infosec Organization</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+  <script src="jquery.particleground.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div id="header" class="row">
+    <span id="logo">greyhat</span>
+    <div class="empty"></div>
+    <div id="about-btn" class="menu-btn">about</div>
+    <div id="events-btn" class="menu-btn">events</div>
+    <div id="ctfs-btn" class="menu-btn">ctfs</div>
+    <div id="archive-btn" class="menu-btn">archive</div>
+    <div id="contact-btn" class="menu-btn">contact</div>
+  </div>
+  <div id="particles" class="content column">
+    <!--<div class="row top">
+      <div id="main" class="container">
+
+      </div>
+    </div>
+    <div class="row bottom">
+      <div id="archive" class="container">
+
+      </div>
+      <div id="ctfs" class="container">
+
+      </div>
+    </div>-->
+  </div>
+  <div id="footer" class="row">
+  </div>
+  <script>
+    particleground(document.getElementById("particles"), {
+      parallax: false,
+      density: 5000,
+      particleRadius: 2,
+      lineWidth: .3
+    });
+  </script>
+</body>
+</html>
