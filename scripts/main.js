@@ -1,13 +1,15 @@
 requirejs.config({
     //By default load any module IDs from js/lib
-    baseUrl: 'scripts/',
+    baseUrl: '/Users/sainaidu/Documents/projects/greyhat-website/scripts',
     //except, if the module ID starts with "app",
     //load it from the js/app directory. paths
     //config is relative to the baseUrl, and
     //never includes a ".js" extension since
     //the paths config could be for a directory.
     paths: {
-        lib: '../lib'
+        lib: '../lib',
+        component: 'components/',
+        service: 'services/'
     }
 });
 
@@ -18,6 +20,7 @@ function   ($,        canvas,   sub) {
     //loaded and can be used here now.
 });*/
 
-require(['master.js', 'events-widget', 'main-event'], function(master, eWidg, eView) {
-  master.ready(eWidg.render(), eView.render());
-}
+require(['master', 'component/main-event', 'component/events-list'], function(master, eMain, eList) {
+  console.log(master + ", " + eMain + ", " + eList)
+  master(eMain, eList);
+});
