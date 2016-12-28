@@ -20,7 +20,8 @@ function   ($,        canvas,   sub) {
     //loaded and can be used here now.
 });*/
 
-require(['master', 'component/main-event', 'component/events-list'], function(master, eMain, eList) {
-  console.log(master + ", " + eMain + ", " + eList)
-  master(eMain, eList);
+require(['master', 'component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
+  function(master, about, eMain, eList, ctfsCurr, ctfsList, archive, contactInfo, contactForm) {
+    console.log(master + ", "+  about + ", "+ eMain + ", " + eList + ", " + ctfsCurr + ", " + ctfsList + ", " + archive + ", " + contactInfo + ", " + contactForm);
+    master(about, eMain, eList, ctfsCurr, ctfsList, archive, contactInfo, contactForm);
 });
