@@ -6,17 +6,18 @@
   <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script data-main="scripts/main.js" src="lib/require.js"></script>
+  <script src="scripts/script.js"></script>
   <script src="lib/jquery.particleground.min.js"></script>
 </head>
 <body>
   <div id="header" class="row">
     <span id="logo">greyhat</span>
     <div class="empty"></div>
-    <div id="about-btn" class="menu-btn">about</div>
-    <div id="events-btn" class="menu-btn">events</div>
-    <div id="ctfs-btn" class="menu-btn">ctfs</div>
-    <div id="archive-btn" class="menu-btn">archive</div>
-    <div id="contact-btn" class="menu-btn">contact</div>
+    <div id="about-btn" class="menu-btn" onclick="changePage('ABOUT')">about</div>
+    <div id="events-btn" class="menu-btn" onclick="changePage('EVENTS')">events</div>
+    <div id="ctfs-btn" class="menu-btn" onclick="changePage('CTFS')">ctfs</div>
+    <div id="archive-btn" class="menu-btn" onclick="changePage('ARCHIVE')">archive</div>
+    <div id="contact-btn" class="menu-btn" onclick="changePage('CONTACT')">contact</div>
   </div>
   <div id="particles">
     <!--<div class="row top">
@@ -35,6 +36,8 @@
   </div>
   <div id="appendable-root" class="content row"></div>
   <div id="footer" class="row">
+    <div id="fb-logo"></div>
+    <div id=""
   </div>
   <script>
     particleground(document.getElementById("particles"), {
