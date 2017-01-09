@@ -15,6 +15,7 @@ body {
 }
 
 span#logo {
+  line-height: 30px;
   user-select: none;
   font-weight: 900;
   font-size: 30px;
@@ -127,6 +128,7 @@ span#logo:hover {
 
   font-family: 'Bungee Hairline', cursive;
   font-weight: 900;
+  line-height: 25px;
   font-size: 25px;
 
   background-color: #184D63;

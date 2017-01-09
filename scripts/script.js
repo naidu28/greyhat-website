@@ -2,13 +2,9 @@
  * This service prepares the DOM for usage in this application
  * Applies page transitions and related effects
  */
-var pageEnum = Object.freeze({
-  ABOUT: 0,
-  EVENTS: 1,
-  CTFS: 2,
-  ARCHIVE: 3,
-  CONTACT: 4
-});
+var pageList = [
+  "about", "events", "ctfs", "archive", "contact"
+];
 
 var pageObjects = [
   [$('#about')],
@@ -18,29 +14,31 @@ var pageObjects = [
   [$('#contact-info'), $('#contact-form')]
 ]
 
-var currentPage = pageEnum.ABOUT;
+var currentPage = pageList[0];
+
+sessionStorage.setItem("currentPage", currentPage);
 
 function changePage(nextPage) {
-  if (currentPage == pageEnum.ABOUT) {
-    if (pageEnum[nextPage] != pageEnum.ABOUT) {
+  if (currentPage == pageList[0]) {
+    if (pageList[nextPage] != pageList[0]) {
       $('#about').addClass('hide');
     }
-  } else if (currentPage == pageEnum.EVENTS) {
-    if (pageEnum[nextPage] != pageEnum.EVENTS) {
+  } else if (currentPage == pageList[1]) {
+    if (pageList[nextPage] != pageList[1]) {
       $('#main-event').addClass('hide');
       $('#events-list').addClass('hide');
     }
-  } else if (currentPage == pageEnum.CTFS) {
-    if (pageEnum[nextPage] != pageEnum.CTFS) {
+  } else if (currentPage == pageList[2]) {
+    if (pageList[nextPage] != pageList[2]) {
       $('#ctfs-current').addClass('hide');
       $('#ctfs-list').addClass('hide');
     }
-  } else if (currentPage == pageEnum.ARCHIVE) {
-    if (pageEnum[nextPage] != pageEnum.ARCHIVE) {
+  } else if (currentPage == pageList[3]) {
+    if (pageList[nextPage] != pageList[3]) {
       $('#archive').addClass('hide');
     }
   } else {
-    if (pageEnum[nextPage] != pageEnum.CONTACT) {
+    if (pageList[nextPage] != pageList[4]) {
       $('#contact-info').addClass('hide');
       $('#contact-form').addClass('hide');
     }
@@ -50,7 +48,7 @@ function changePage(nextPage) {
 }
 
 function loadObjects(page) {
-  var elems = pageObjects[pageEnum[page]];
+  var elems = pageObjects[pageList[page]];
   for (var i = 0; i < elems.length; i++) {
     elems[i].removeClass('hide');
   }
@@ -68,3 +66,14 @@ function cleanLoad() {
     }
   }
 }
+
+var showOrHide = function(widget) {
+  console.log(sessionStorage);
+  var data = sessionStorage.getItem("currentPage");
+  var widgetId = $(widget).attr('id');
+  console.log("data " +data);
+  console.log("widget id " +widgetId);
+  if (data != widgetId) {
+    $(widget).addClass('hide');
+  }
+};

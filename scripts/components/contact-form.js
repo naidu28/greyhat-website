@@ -1,5 +1,5 @@
-define([], function(callback) {
-  function render(cb) {
+define([], function() {
+  function render() {
     var widget = "<div id='contact-form' class='column'></div>";
     var header = "<div class='component-header'></div>";
     var divider = "<div class='component-divider'></div>";
@@ -14,9 +14,8 @@ define([], function(callback) {
     $('#appendable-root')
       .append(widget);
 
-    cb(widget);
+    return widget;
   }
 
-
-  return render(callback);
+  return render();
 });

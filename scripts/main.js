@@ -1,6 +1,6 @@
 requirejs.config({
     //By default load any module IDs from js/lib
-    baseUrl: '/Users/sainaidu/Documents/projects/greyhat-website/scripts',
+    baseUrl: 'scripts',
     //except, if the module ID starts with "app",
     //load it from the js/app directory. paths
     //config is relative to the baseUrl, and
@@ -21,7 +21,14 @@ function   ($,        canvas,   sub) {
 });*/
 
 require(['master', 'component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
-  function(master, about, eMain, eList, ctfsCurr, ctfsList, archive, contactInfo, contactForm) {
-    console.log(master + ", "+  about + ", "+ eMain + ", " + eList + ", " + ctfsCurr + ", " + ctfsList + ", " + archive + ", " + contactInfo + ", " + contactForm);
-    master(about, eMain, eList, ctfsCurr, ctfsList, archive, contactInfo, contactForm);
+  function(master, about, mainEvent, eventsList, ctfsCurrent, ctfsList, archive, contactInfo, contactForm) {
+    //console.log(master + ", "+  about + ", "+ eMain + ", " + eList + ", " + ctfsCurr + ", " + ctfsList + ", " + archive + ", " + contactInfo + ", " + contactForm);
+    showOrHide(about);
+    showOrHide(mainEvent);
+    showOrHide(eventsList);
+    showOrHide(ctfsCurrent);
+    showOrHide(ctfsList);
+    showOrHide(archive);
+    showOrHide(contactInfo);
+    showOrHide(contactForm);
 });
