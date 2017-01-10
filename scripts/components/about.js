@@ -12,14 +12,6 @@ define([], function() {
       .append(divider)
       .append(content);
 
-    console.log("a root" + document.getElementById("#appendable-root"));
-    var dom = document.children;
-    console.log("dom object " +dom.length);
-    for (var i = 0; i < dom; i++) {
-      console.log("dom item " +dom.item(i));
-    }
-
-    console.log("widget " +JSON.stringify($("#about")));
     $('#appendable-root')
       .append(widget);
 

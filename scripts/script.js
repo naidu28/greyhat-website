@@ -6,41 +6,39 @@ var pageList = [
   "about", "events", "ctfs", "archive", "contact"
 ];
 
-var pageObjects = [
-  [$('#about')],
-  [$('#main-event'), $('#events-list')],
-  [$('#ctfs-current'), $('#ctfs-list')],
-  [$('#archive')],
-  [$('#contact-info'), $('#contact-form')]
-]
+var pageObjects = {
+  "about" : ['#about'],
+  "events" : ['#main-event', '#events-list'],
+  "ctfs" : ['#ctfs-current', '#ctfs-list'],
+  "archive" : ['#archive'],
+  "contact" : ['#contact-info', '#contact-form']
+}
 
-var currentPage = pageList[0];
-
-sessionStorage.setItem("currentPage", currentPage);
+sessionStorage.setItem("currentPage", pageList[0]);
 
 function changePage(nextPage) {
-  if (currentPage == pageList[0]) {
+  if (sessionStorage.getItem("currentPage") == pageList[0]) {
     if (pageList[nextPage] != pageList[0]) {
-      $('#about').addClass('hide');
+      $('#about').hide();
     }
-  } else if (currentPage == pageList[1]) {
+  } else if (sessionStorage.getItem("currentPage") == pageList[1]) {
     if (pageList[nextPage] != pageList[1]) {
-      $('#main-event').addClass('hide');
-      $('#events-list').addClass('hide');
+      $('#main-event').hide();
+      $('#events-list').hide();
     }
-  } else if (currentPage == pageList[2]) {
+  } else if (sessionStorage.getItem("currentPage") == pageList[2]) {
     if (pageList[nextPage] != pageList[2]) {
-      $('#ctfs-current').addClass('hide');
-      $('#ctfs-list').addClass('hide');
+      $('#ctfs-current').hide();
+      $('#ctfs-list').hide();
     }
-  } else if (currentPage == pageList[3]) {
+  } else if (sessionStorage.getItem("currentPage") == pageList[3]) {
     if (pageList[nextPage] != pageList[3]) {
-      $('#archive').addClass('hide');
+      $('#archive').hide();
     }
   } else {
     if (pageList[nextPage] != pageList[4]) {
-      $('#contact-info').addClass('hide');
-      $('#contact-form').addClass('hide');
+      $('#contact-info').hide();
+      $('#contact-form').hide();
     }
   }
 
@@ -48,24 +46,27 @@ function changePage(nextPage) {
 }
 
 function loadObjects(page) {
-  var elems = pageObjects[pageList[page]];
+  var elems = pageObjects[page];
+  console.log(elems);
   for (var i = 0; i < elems.length; i++) {
-    elems[i].removeClass('hide');
+    $(elems[i]).show();
+    sessionStorage.setItem("currentPage", page);
+    console.log(elems[i]);
   }
 }
 
-function cleanLoad() {
+/*function cleanLoad() {
   for (var i = 0; i < pageObjects.length; i++) {
     if (i != currentPage) {
       var elems = pageObjects[i];
       console.log("elems list" +JSON.stringify(elems));
       for (var j = 0; j < elems.length; j++) {
         console.log("ELEMS" + JSON.stringify(elems[i]));
-        elems[i].addClass('hide');
+        elems[i].hide();
       }
     }
   }
-}
+}*/
 
 var showOrHide = function(widget) {
   console.log(sessionStorage);
@@ -74,6 +75,6 @@ var showOrHide = function(widget) {
   console.log("data " +data);
   console.log("widget id " +widgetId);
   if (data != widgetId) {
-    $(widget).addClass('hide');
+    $(widget).hide();
   }
 };

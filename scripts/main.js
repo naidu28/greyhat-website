@@ -20,7 +20,23 @@ function   ($,        canvas,   sub) {
     //loaded and can be used here now.
 });*/
 
-require(['master', 'component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
+require(['domReady'], function(domReady) {
+  domReady(function () {
+    require(['component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
+      function(about, mainEvent, eventsList, ctfsCurrent, ctfsList, archive, contactInfo, contactForm) {
+        showOrHide(about);
+        showOrHide(mainEvent);
+        showOrHide(eventsList);
+        showOrHide(ctfsCurrent);
+        showOrHide(ctfsList);
+        showOrHide(archive);
+        showOrHide(contactInfo);
+        showOrHide(contactForm);
+      });
+  });
+});
+
+/*require(['master', 'component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
   function(master, about, mainEvent, eventsList, ctfsCurrent, ctfsList, archive, contactInfo, contactForm) {
     //console.log(master + ", "+  about + ", "+ eMain + ", " + eList + ", " + ctfsCurr + ", " + ctfsList + ", " + archive + ", " + contactInfo + ", " + contactForm);
     showOrHide(about);
@@ -31,4 +47,4 @@ require(['master', 'component/about', 'component/main-event', 'component/events-
     showOrHide(archive);
     showOrHide(contactInfo);
     showOrHide(contactForm);
-});
+});*/
