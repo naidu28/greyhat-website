@@ -14,31 +14,71 @@ var pageObjects = {
   "contact" : ['#contact-info', '#contact-form']
 }
 
+var components = {
+  "about" : [['component/about','about']],
+  "events" : [['component/main-event', 'mainEvent'], ['component/events-list', 'eventsList']],
+  "ctfs" : [['component/ctfs-current', 'ctfsCurrent'], ['component/ctfs-list', 'ctfsList']],
+  "archive" : [['component/archive', 'archive']],
+  "contact" : [['component/contact-form', 'contactForm'], ['component/contact-info', 'contactInfo']]
+}
+
 sessionStorage.setItem("currentPage", pageList[0]);
 
 function changePage(nextPage) {
   if (sessionStorage.getItem("currentPage") == pageList[0]) {
     if (pageList[nextPage] != pageList[0]) {
-      $('#about').hide();
+      carouselStop();
+      var about = $('#about');
+      about.hide();
+      about.remove();
+      //requirejs.undef('about');
+      /*var aboutNode = about.get();
+      var parentNode = aboutNode.parentElement;
+      console.log("parent element " +parentNode);
+      parentNode.removeChild(aboutNode);*/
     }
   } else if (sessionStorage.getItem("currentPage") == pageList[1]) {
     if (pageList[nextPage] != pageList[1]) {
-      $('#main-event').hide();
-      $('#events-list').hide();
+      var mainEvent = $('#main-event');
+      mainEvent.hide();
+      mainEvent.remove();
+      //requirejs.undef('mainEvent');
+
+      var eventsList = $('#events-list');
+      eventsList.hide();
+      eventsList.remove();
+      //requirejs.undef('eventsList');
     }
   } else if (sessionStorage.getItem("currentPage") == pageList[2]) {
     if (pageList[nextPage] != pageList[2]) {
-      $('#ctfs-current').hide();
-      $('#ctfs-list').hide();
+      var ctfsCurrent = $('#ctfs-current');
+      ctfsCurrent.hide();
+      ctfsCurrent.remove();
+      //requirejs.undef('ctfsCurrent');
+
+      var ctfsList = $('#ctfs-list');
+      ctfsList.hide();
+      ctfsList.remove();
+      //requirejs.undef('ctfsList');
     }
   } else if (sessionStorage.getItem("currentPage") == pageList[3]) {
     if (pageList[nextPage] != pageList[3]) {
-      $('#archive').hide();
+      var archive = $('#archive');
+      archive.hide();
+      archive.remove();
+      //requirejs.undef('archive');
     }
   } else {
     if (pageList[nextPage] != pageList[4]) {
-      $('#contact-info').hide();
-      $('#contact-form').hide();
+      var contactInfo = $('#contact-info');
+      contactInfo.hide();
+      contactInfo.remove();
+      //requirejs.undef('contactInfo');
+
+      var contactForm = $('#contact-form');
+      contactForm.hide();
+      contactForm.remove();
+      //requirejs.undef('contactForm');
     }
   }
 
@@ -46,13 +86,36 @@ function changePage(nextPage) {
 }
 
 function loadObjects(page) {
-  var elems = pageObjects[page];
+  var modules = components[page];
+
+  console.log(modules);
+  for (var i = 0; i < modules.length; i++) {
+    var mod = modules[i];
+    var href = mod[0];
+    var name = mod[1];
+    console.log("module " +mod);
+    //require([href], function(name) {});
+    eval(mod[1] + "()");
+  }
+
+  sessionStorage.setItem("currentPage", page);
+
+  /*var elems = pageObjects[page];
   console.log(elems);
   for (var i = 0; i < elems.length; i++) {
-    $(elems[i]).show();
+    $(elems[i]).fadeIn(200);
     sessionStorage.setItem("currentPage", page);
     console.log(elems[i]);
-  }
+  }*/
+
+  //shitty code to artificially update url
+  /*var url = window.location.href;
+  var i = url.indexOf("#")
+  var old = url.substring(i, url.length);
+  var curr = "#" + page;
+  window.location.href = url.replace(old, curr);*/
+  fixUrl(page);
+  //window.location.href = window.location.href + "#" + page;
 }
 
 /*function cleanLoad() {
@@ -76,5 +139,50 @@ var showOrHide = function(widget) {
   console.log("widget id " +widgetId);
   if (data != widgetId) {
     $(widget).hide();
+  } else {
+    fixUrl(data);
+    $(widget).fadeIn(200);
   }
 };
+
+var fixUrl = function(page) {
+  var url = window.location.href;
+  var i = url.indexOf("#")
+
+  if (i != -1) {
+    var old = url.substring(i, url.length);
+    var curr = "#" + page;
+    window.location.href = url.replace(old, curr);
+  } else {
+    window.location.href = window.location.href + "#" + page;
+  }
+}
+
+$(document).ready(function() {
+  var modules = pageObjects[sessionStorage.getItem("currentPage")];
+  modules.forEach(function() {$(this).remove();})
+
+  if (window.location.href.includes("events")) {
+    mainEvent();
+    eventsList();
+    sessionStorage.setItem("currentPage", "events");
+  } else if (window.location.href.includes("ctfs")) {
+    ctfsList();
+    ctfsCurrent();
+    sessionStorage.setItem("currentPage", "ctfs");
+  } else if (window.location.href.includes("archive")) {
+    archive();
+    sessionStorage.setItem("currentPage", "archive");
+  } else if (window.location.href.includes("contact")) {
+    contactInfo();
+    contactForm();
+    sessionStorage.setItem("currentPage", "contact");
+  } else {
+    //handle cases for about - when url contains "about" or on default
+    about();
+    //$('#carousel-about').addClass("carousel slide");
+    //$('#carousel-about').carousel({ interval: 2000 })
+    sessionStorage.setItem("currentPage", "about");
+    //carouselInit('carousel-about');
+  }
+})

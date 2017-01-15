@@ -20,19 +20,53 @@ function   ($,        canvas,   sub) {
     //loaded and can be used here now.
 });*/
 
-require(['domReady'], function(domReady) {
+/*require(['domReady'], function(domReady) {
   domReady(function () {
-    require(['component/about', 'component/main-event', 'component/events-list', 'component/ctfs-current', 'component/ctfs-list', 'component/archive', 'component/contact-info', 'component/contact-form'],
-      function(about, mainEvent, eventsList, ctfsCurrent, ctfsList, archive, contactInfo, contactForm) {
+    require(['component/about', 'component/main-event', 'component/events-list', 'component/ctfs-list', 'component/ctfs-current', 'component/archive', 'component/contact-info', 'component/contact-form'],
+      function(about, mainEvent, eventsList, ctfsList, ctfsCurrent, archive, contactInfo, contactForm) {
         showOrHide(about);
+        carousel('carousel-about');
+
         showOrHide(mainEvent);
         showOrHide(eventsList);
-        showOrHide(ctfsCurrent);
         showOrHide(ctfsList);
+        showOrHide(ctfsCurrent);
         showOrHide(archive);
         showOrHide(contactInfo);
         showOrHide(contactForm);
       });
+  });
+});*/
+
+require(['domReady'], function(domReady) {
+  domReady(function () {
+    if (window.location.href.includes("events")) {
+      require(['component/main-event', 'component/events-list'], function(mainEvent, eventsList) {});
+    } else if (window.location.href.includes("ctfs")) {
+      require(['component/ctfs-list', 'component/ctfs-current'], function(ctfsList, ctfsCurrent) {});
+    } else if (window.location.href.includes("archive")) {
+      require(['component/archive'], function(archive) {});
+    } else if (window.location.href.includes("contact")) {
+      require(['component/contact-info', 'component/contact-form'], function(contactInfo, contactForm) {});
+    } else {
+      //handle cases for about - when url contains "about" or on default
+      require(['component/about'], function(about) {
+        carouselInit('carousel-about');
+      })
+    }
+    /*require(['component/about', 'component/main-event', 'component/events-list', 'component/ctfs-list', 'component/ctfs-current', 'component/archive', 'component/contact-info', 'component/contact-form'],
+      function(about, mainEvent, eventsList, ctfsList, ctfsCurrent, archive, contactInfo, contactForm) {
+        showOrHide(about);
+        carousel('carousel-about');
+
+        showOrHide(mainEvent);
+        showOrHide(eventsList);
+        showOrHide(ctfsList);
+        showOrHide(ctfsCurrent);
+        showOrHide(archive);
+        showOrHide(contactInfo);
+        showOrHide(contactForm);
+      });*/
   });
 });
 

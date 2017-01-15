@@ -3,15 +3,31 @@
 <html>
 <head>
   <title>GreyHat | Georgia Tech's Premier Infosec Organization</title>
-  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+  <!--<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-theme.min.css" / />-->
+  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+  <!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>-->
+  <!-- Add the slick-theme.css if you want default styling -->
+  <!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>-->
+  <!--<script src="agile_carousel/agile_carousel.a1.1.js"></script>-->
+  <script src="scripts/carousel.js"></script>
+  <!--<script data-main="scripts/main.js" src="lib/require.js"></script>-->
+  <script src="scripts/components/about.js"></script>
+  <script src="scripts/components/archive.js"></script>
+  <script src="scripts/components/contact-form.js"></script>
+  <script src="scripts/components/contact-info.js"></script>
+  <script src="scripts/components/ctfs-current.js"></script>
+  <script src="scripts/components/ctfs-list.js"></script>
+  <script src="scripts/components/events-list.js"></script>
+  <script src="scripts/components/main-event.js"></script>
   <script src="scripts/script.js"></script>
-  <script data-main="scripts/main.js" src="lib/require.js"></script>
   <script src="lib/jquery.particleground.min.js"></script>
 </head>
 <body>
   <div id="header" class="row">
-    <span id="logo">greyhat</span>
+    <span id="logo" onclick="changePage('about')">greyhat</span>
     <div class="empty"></div>
     <div id="about-btn" class="menu-btn" onclick="changePage('about')">about</div>
     <div id="events-btn" class="menu-btn" onclick="changePage('events')">events</div>
@@ -42,10 +58,11 @@
   <script>
     particleground(document.getElementById("particles"), {
       parallax: false,
-      density: 5000,
+      density: 10000,
       particleRadius: 2,
-      lineWidth: .3
+      lineWidth: .01
     });
   </script>
+  <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>-->
 </body>
 </html>
