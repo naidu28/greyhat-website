@@ -131,6 +131,22 @@ function about() {
       //.append(indicatorWrapper)
       .append(carouselInner);
 
+    /*Text code*/
+    var title = '<h4 class="content-heading">Who We Are</h4>';
+    title = $(title);
+
+    var blurb = '<p class="blurb">&emsp;&emsp;We are students and alumni at the Georgia Institute of Technology who share a passion for all things related to information security. We compete in CTF competitions, attend security conventions, and hold weekly practice sessions for interested members. You can find us at the College of Computing in room 17 every Thursday between 6:30 and 8pm. We welcome students of all levels of expertise and from all backgrounds. If you would like to know more about us or would like to get involved, please contact us using the links below.</p>';
+    blurb = $(blurb);
+                            /**<div class="content">
+                                <p class="flow-text">
+                                    We are students and alumni at the <a class="external-link" href="http://www.gatech.edu/" target="_blank">Georgia Institute of Technology</a> who share a passion for all things related to information security. We compete in CTF competitions, attend security conventions, and hold weekly practice sessions for interested members.<br /><br />
+
+                                    You can find us at the College of Computing in room 17 every Thursday between 6:30 and 8pm.<br /><br />
+
+                                    We welcome students of all levels of expertise and from all backgrounds. If you would like to know more about us or would like to get involved, please contact us using the links below.
+                                </p>
+                            </div>*/
+
     //custom carousel code
     /*var divA = "<div class='carousel-object active'></div>";
     var divB = "<div class='carousel-object'></div>";
@@ -156,8 +172,12 @@ function about() {
       .append(divB)
       .append(divC);*/
 
+    header = $(header)
+      .append(title);
+
     content = $(content)
-      .append(slider);
+      .append(slider)
+      .append(blurb);
 
     widget = $(widget)
       .append(header)

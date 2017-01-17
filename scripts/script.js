@@ -185,4 +185,23 @@ $(document).ready(function() {
     sessionStorage.setItem("currentPage", "about");
     //carouselInit('carousel-about');
   }
-})
+});
+
+function replaceWithSpinner() {
+  var toReplace = $("#contact-form-submit");
+  var parent = toReplace.parent();
+  toReplace.fadeOut(200);
+  window.setTimeout(function() {
+    toReplace.remove();
+    var spinner = '<div id="circleG" class="css-load"><div id="circleG_1" class="circleG"></div><div id="circleG_2" class="circleG"></div><div id="circleG_3" class="circleG"></div></div>';
+    spinner = $(spinner);
+    parent.append(spinner);
+    window.setTimeout(function() {
+      spinner.fadeOut(200);
+      spinner.remove();
+      parent.append(toReplace);
+      toReplace.hide();
+      toReplace.fadeIn(200);
+    }, 2800);
+  }, 200);
+}
