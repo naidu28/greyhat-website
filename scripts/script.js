@@ -103,7 +103,7 @@ function loadObjects(page) {
   /*var elems = pageObjects[page];
   console.log(elems);
   for (var i = 0; i < elems.length; i++) {
-    $(elems[i]).fadeIn(200);
+    $(elems[i]).fadeIn(400);
     sessionStorage.setItem("currentPage", page);
     console.log(elems[i]);
   }*/
@@ -141,7 +141,7 @@ var showOrHide = function(widget) {
     $(widget).hide();
   } else {
     fixUrl(data);
-    $(widget).fadeIn(200);
+    $(widget).fadeIn(400);
   }
 };
 

@@ -34,8 +34,12 @@ function contactInfo() {
      .append(divider)
      .append(content);
 
+   widget.hide();
+
    $('#appendable-root')
      .append(widget);
+
+   widget.fadeIn(400);
 
    return widget;
  }

@@ -44,8 +44,12 @@ function archive() {
       .append(divider)
       .append(content);
 
+    widget.hide();
+
     $('#appendable-root')
       .append(widget);
+
+    widget.fadeIn(400);
 
     yChan.height($('#archive').children('.component-content').height() - 50)
       .width($('#archive').children('.component-content').width() - 50);

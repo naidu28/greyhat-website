@@ -62,8 +62,12 @@ function mainEvent() {
       .append(divider)
       .append(content);
 
+    widget.hide();
+
     $('#appendable-root')
       .append(widget);
+
+    widget.fadeIn(400);
 
     gCal.height($('#main-event').children('.component-content').height() - 50)
       .width($('#main-event').children('.component-content').width() - 50);

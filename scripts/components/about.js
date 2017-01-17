@@ -169,9 +169,12 @@ function about() {
       $('#carousel-about').carousel();
     });*/
 
+    widget.hide();
+
     $('#appendable-root')
       .append(widget);
 
+    widget.fadeIn(400);
     //carouselInit('carousel-about');
     $('#carousel-about').addClass("carousel slide");
 

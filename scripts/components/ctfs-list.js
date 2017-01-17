@@ -91,8 +91,12 @@ function ctfsList() {
      .append(divider)
      .append(content);
 
+   widget.hide();
+
    $('#appendable-root')
      .append(widget);
+
+   widget.fadeIn(400);
 
    console.log("width of component " +$('#ctfs-list').children('.component-content').outerWidth());
    gCal.height($('#ctfs-list').children('.component-content').height() - 50)
