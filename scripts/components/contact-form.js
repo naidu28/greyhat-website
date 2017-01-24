@@ -36,10 +36,10 @@ function contactForm() {
    var inputMessage = "<label for='message'>Message</label><textarea class='form-message' cols='60' name='message' rows='8'></textarea>";
    var submit = "<div name='submit' class='form-submit lato' onclick='replaceWithSpinner()'><span id='contact-form-submit'>Submit</span></div>";*/
 
-   var form = '<form class="column" method="POST" action="http://formspree.io/snaidu1228@gmail.com"></form>';
+   var form = '<form class="column" method="POST" action="http://formspree.io/greyhatgt@gmail.com"></form>';
    var email = '<input class="form-text" type="email" name="email" placeholder="Your email">';
    var text = '<textarea class="form-message" name="message" placeholder="Your message" cols="60" rows="8"></textarea>';
-   var submit = '<div name="submit" class="form-submit lato" onclick="replaceWithSpinner();" type="submit"><span id="contact-form-submit">Send</span></div>'
+   var submit = '<button name="submit" class="form-submit lato" onclick="replaceWithSpinner();" type="submit"><span id="contact-form-submit">Send</span></button>'
 
    form = $(form)
       .append(email)
