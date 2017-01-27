@@ -24,11 +24,11 @@ define([], function() {
 function archive() {
   function render() {
     var widget = "<div id='archive' class='column'></div>";
-    var header = "<div class='component-header'></div>";
+    var header = "<div class='component-header content-heading'>meetings and errata</div>";
     var divider = "<div class='component-divider'></div>";
     var content = "<div class='component-content'></div>";
 
-    var yChan = '<iframe class="y-chan" src="https://www.youtube.com/embed/videoseries?list=PLO5wkOH39hDoEfv27wzIldQA5I1rm_g8Y" frameborder="0" allowfullscreen></iframe>';
+    var yChan = '<iframe class="y-chan" src="https://www.youtube.com/embed/videoseries?list=PLm93YLbyqO0kgMpGdhUCT0E-j8iov9nVt" frameborder="0" allowfullscreen></iframe>';
     yChan = $(yChan);
 
     $(window).resize(function() {

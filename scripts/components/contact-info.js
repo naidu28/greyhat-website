@@ -24,7 +24,7 @@ define([], function() {
 function contactInfo() {
  function render() {
    var widget = "<div id='contact-info' class='column'></div>";
-   var header = "<div class='component-header'></div>";
+   var header = "<div class='component-header content-heading'>Under Construction!</div>";
    var divider = "<div class='component-divider'></div>";
    var content = "<div class='component-content'></div>";
 

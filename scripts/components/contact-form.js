@@ -23,7 +23,7 @@ define([], function() {
 function contactForm() {
  function render() {
    var widget = "<div id='contact-form' class='column'></div>";
-   var header = "<div class='component-header'></div>";
+   var header = "<div class='component-header content-heading'>Talk to us</div>";
    var divider = "<div class='component-divider'></div>";
    var content = "<div class='component-content'></div>";
 

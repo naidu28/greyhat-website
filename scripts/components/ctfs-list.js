@@ -5,7 +5,7 @@ define([], function() {
     var divider = "<div class='component-divider'></div>";
     var content = "<div class='component-content'></div>";
 
-    var gCal = '<object class="g-cal" data="https://calendar.google.com/calendar/embed?src=g9eho2vo077sav1ujntd13fiog%40group.calendar.google.com&ctz=America/New_York" frameborder="0" scrolling="no"></object>'
+    var gCal = '<object class="g-cal" data="https://calendar.google.com/calendar/embed?src=gc71tpvbq9q7c6pgivcv1845lg%40group.calendar.google.com&ctz=America/New_York" frameborder="0" scrolling="no"></object>'
     /*End Google calendar code*/
     //set height as much as height of container
     gCal = $(gCal);
@@ -62,11 +62,11 @@ define([], function() {
 function ctfsList() {
  function render() {
    var widget = "<div id='ctfs-list' class='column'></div>";
-   var header = "<div class='component-header'></div>";
+   var header = "<div class='component-header content-heading'>Official Calendar</div>";
    var divider = "<div class='component-divider'></div>";
    var content = "<div class='component-content'></div>";
 
-   var gCal = '<object class="g-cal" data="https://calendar.google.com/calendar/embed?src=g9eho2vo077sav1ujntd13fiog%40group.calendar.google.com&ctz=America/New_York" frameborder="0" scrolling="no"></object>'
+   var gCal = '<object class="g-cal" data="https://calendar.google.com/calendar/embed?src=gc71tpvbq9q7c6pgivcv1845lg%40group.calendar.google.com&ctz=America/New_York" frameborder="0" scrolling="no"></object>'
    /*End Google calendar code*/
    //set height as much as height of container
    gCal = $(gCal);

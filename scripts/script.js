@@ -162,11 +162,12 @@ $(document).ready(function() {
   var modules = pageObjects[sessionStorage.getItem("currentPage")];
   modules.forEach(function() {$(this).remove();})
 
-  if (window.location.href.includes("events")) {
+  /*if (window.location.href.includes("events")) {
     mainEvent();
     eventsList();
     sessionStorage.setItem("currentPage", "events");
-  } else if (window.location.href.includes("ctfs")) {
+  }*/
+  if (window.location.href.includes("ctfs")) {
     ctfsList();
     ctfsCurrent();
     sessionStorage.setItem("currentPage", "ctfs");

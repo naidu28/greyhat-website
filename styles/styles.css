@@ -238,7 +238,7 @@ span#logo:hover {
 #contact-info {
   position: relative;
   height: 500px;
-  width: 300px;
+  width: 350px;
   margin-left: 50px;
   margin-bottom: 50px;
   border-radius: 2px;
@@ -268,7 +268,7 @@ span#logo:hover {
 #ctfs-current {
   position: relative;
   height: 75%;
-  width: 20%;
+  width: 25%;
   margin-left: 50px;
   margin-bottom: 50px;
   border-radius: 2px;
@@ -504,7 +504,6 @@ label {
 .css-load {
   padding-top: 10px;
 }
-
 
 
 /*
